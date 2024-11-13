@@ -47,6 +47,5 @@ public class LocatorTest extends BaseTest {
         driver.findElement(By.cssSelector("[class ^= 'footer']"));   //[atrubute^=value]
         driver.findElement(By.cssSelector("[name$='backpack']"));   //[atrubute$=value]
         driver.findElement(By.cssSelector("[id*='-menu-btn']"));   //[atrubute*=value]
-
     }
 }
