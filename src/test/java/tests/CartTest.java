@@ -6,7 +6,7 @@ import org.testng.asserts.SoftAssert;
 public class CartTest extends BaseTest {
 
     //Добавить 1 продукт в корзину и проверить что продукт добавился по имени
-    @Test
+    @Test (testName = "Checking by Name", description = "Check added products by name", priority = 1)
     public void addToCartAndCheckByName() {
 
         loginPage.open();
@@ -19,10 +19,11 @@ public class CartTest extends BaseTest {
         String addedProductName = cartPage.getAddedProductByName("Sauce Labs Bike Light");
         softAssert.assertEquals(addedProductName, "Sauce Labs Bike Light");
         softAssert.assertAll();
+
     }
 
     //Добавить 1 продукт в корзину и проверить что продукт добавился по цене
-    @Test
+    @Test (testName = "Checking by Price", description = "Check added products by price", priority = 2)
     public void addToCartAndCheckByPrice() {
 
         String expectedPrice = "$9.99";
@@ -38,7 +39,7 @@ public class CartTest extends BaseTest {
     }
 
     //Удалить продукт из корзины и проверить что продукт удалился
-    @Test
+    @Test (testName = "Removing 1 product", description = "Remove 1 product from the cart", priority = 3)
     public void removeItemFromCart() {
 
         loginPage.open();
@@ -53,7 +54,7 @@ public class CartTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test
+    @Test (testName = "Adding products", description = "Add multiple products to the cart", priority = 4)
     public void addMultipleItems() {
 
         loginPage.open();
@@ -71,7 +72,7 @@ public class CartTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test
+    @Test (testName = "Removing 2 products", description = "Remove 2 products from the cart", priority = 5)
     public void removeMultipleItems() {
 
         loginPage.open();
@@ -89,7 +90,7 @@ public class CartTest extends BaseTest {
     }
 
     //Нажать кнопку Continue shopping и вернуться на страницу продукты
-    @Test
+    @Test (testName = "Checking Continue Shopping Button", description = "Check that click on Continue Sopping Button leads to Main page", priority = 6)
     public void continueShopping() {
 
         loginPage.open();
