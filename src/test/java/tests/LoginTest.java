@@ -8,7 +8,8 @@ import static org.testng.Assert.assertEquals;
 public class LoginTest extends BaseTest {
 
     //enabled = false - тест скипается, retryAnalyzer - перезапустить тест (для тестов которые падают периодически например из-за таймаута)
-    @Test(testName = "Позитивный логин", description = "Проверить позитивный логин", priority = 1, enabled = true, retryAnalyzer = Retry.class)
+    @Test(testName = "Позитивный логин", description = "Проверить позитивный логин",
+            priority = 1, enabled = true)  //retryAnalyzer = Retry.class)
     public void checkLogin() {
 
         loginPage.open();
@@ -20,7 +21,8 @@ public class LoginTest extends BaseTest {
     }
 
     //Тест - пустое поле Name
-    @Test (testName = "Пустое имя", description = "Оставить Поле имя пустым", priority = 2, enabled = true, retryAnalyzer = Retry.class)
+    @Test (testName = "Пустое имя", description = "Оставить Поле имя пустым",
+            priority = 2, enabled = true)
     public void checkEmptyNameDuringLogin() {
 
         loginPage.open();
@@ -32,7 +34,8 @@ public class LoginTest extends BaseTest {
     }
 
     //Тест - пустое поле Password
-    @Test (testName = "Пустой пароль", description = "Оставить поле Пароль пустым", priority = 3, enabled = true, retryAnalyzer = Retry.class)
+    @Test (testName = "Пустой пароль", description = "Оставить поле Пароль пустым",
+            priority = 3, enabled = true)
     public void checkEmptyPasswordDuringLogin() {
 
         loginPage.open();
@@ -44,7 +47,8 @@ public class LoginTest extends BaseTest {
     }
 
     //Тест - введён неправильный логин (имя пользователя)
-    @Test (testName = "Неправильное имя", description = "Ввести неправильное имя юзера", priority = 4, enabled = true, retryAnalyzer = Retry.class)
+    @Test (testName = "Неправильное имя", description = "Ввести неправильное имя юзера",
+            priority = 4, enabled = true)
     public void checkIncorrectUserNameDuringLogin() {
 
         loginPage.open();
@@ -56,7 +60,8 @@ public class LoginTest extends BaseTest {
     }
 
     //Тест - введён неправильный пароль
-    @Test (testName = "Неправильный пароль", description = "Ввести неправильный пароль", priority = 5, enabled = true, retryAnalyzer = Retry.class)
+    @Test (testName = "Неправильный пароль", description = "Ввести неправильный пароль",
+            priority = 5, enabled = true)
     public void checkIncorrectPasswordDuringLogin() {
 
         loginPage.open();
