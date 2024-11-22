@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
     }
 
     //Тест - пустое поле Name
-    @Test (testName = "Пустое имя", description = "Оставить Поле имя пустым",
+    @Test(testName = "Пустое имя", description = "Оставить Поле имя пустым",
             priority = 2, enabled = true)
     public void checkEmptyNameDuringLogin() {
 
@@ -34,7 +34,7 @@ public class LoginTest extends BaseTest {
     }
 
     //Тест - пустое поле Password
-    @Test (testName = "Пустой пароль", description = "Оставить поле Пароль пустым",
+    @Test(testName = "Пустой пароль", description = "Оставить поле Пароль пустым",
             priority = 3, enabled = true)
     public void checkEmptyPasswordDuringLogin() {
 
@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest {
     }
 
     //Тест - введён неправильный логин (имя пользователя)
-    @Test (testName = "Неправильное имя", description = "Ввести неправильное имя юзера",
+    @Test(testName = "Неправильное имя", description = "Ввести неправильное имя юзера",
             priority = 4, enabled = true)
     public void checkIncorrectUserNameDuringLogin() {
 
@@ -60,7 +60,7 @@ public class LoginTest extends BaseTest {
     }
 
     //Тест - введён неправильный пароль
-    @Test (testName = "Неправильный пароль", description = "Ввести неправильный пароль",
+    @Test(testName = "Неправильный пароль", description = "Ввести неправильный пароль",
             priority = 5, enabled = true)
     public void checkIncorrectPasswordDuringLogin() {
 
