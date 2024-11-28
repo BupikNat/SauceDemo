@@ -9,7 +9,6 @@
         <classes>
             <class name="tests.LoginTest"/>
             <class name="tests.CartTest"/>
-            <class name="tests.LocatorTest"/>
             <parameter name="browser" value="chrome"></parameter>
         </classes>
     </test> <!-- Test -->
@@ -17,7 +16,6 @@
         <classes>
             <class name="tests.LoginTest"/>
             <class name="tests.CartTest"/>
-            <class name="tests.LocatorTest"/>
             <parameter name="browser" value="edge"></parameter>
         </classes>
     </test> <!-- Test -->

@@ -1,5 +1,9 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -7,6 +11,7 @@ public class CartTest extends BaseTest {
 
     //Добавить 1 продукт в корзину и проверить что продукт добавился по имени
     @Test (testName = "Checking by Name", description = "Check added products by name", priority = 1)
+    @Description("Проверка добавления товара в корзину по имени товара")
     public void addToCartAndCheckByName() {
 
         loginPage.open();
@@ -24,6 +29,7 @@ public class CartTest extends BaseTest {
 
     //Добавить 1 продукт в корзину и проверить что продукт добавился по цене
     @Test (testName = "Checking by Price", description = "Check added products by price", priority = 2)
+    @Description("Проверка добавления товара в корзину по цене товара")
     public void addToCartAndCheckByPrice() {
 
         String expectedPrice = "$9.99";
@@ -40,6 +46,7 @@ public class CartTest extends BaseTest {
 
     //Удалить продукт из корзины и проверить что продукт удалился
     @Test (testName = "Removing 1 product", description = "Remove 1 product from the cart", priority = 3)
+    @Description("Проверка удаления товара из корзины")
     public void removeItemFromCart() {
 
         loginPage.open();
@@ -55,6 +62,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test (testName = "Adding products", description = "Add multiple products to the cart", priority = 4)
+    @Description("Проверка добавления нескольких товаров в корзину")
     public void addMultipleItems() {
 
         loginPage.open();
@@ -73,6 +81,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test (testName = "Removing 2 products", description = "Remove 2 products from the cart", priority = 5)
+    @Description("Проверка удаления нескольких товаров из корзины")
     public void removeMultipleItems() {
 
         loginPage.open();
@@ -90,7 +99,10 @@ public class CartTest extends BaseTest {
     }
 
     //Нажать кнопку Continue shopping и вернуться на страницу продукты
-    @Test (testName = "Checking Continue Shopping Button", description = "Check that click on Continue Sopping Button leads to Main page", priority = 6)
+    @Test (testName = "Checking Continue Shopping Button",
+            description = "Check that click on Continue Sopping Button leads to Main page",
+            priority = 6)
+    @Description("Проверка кнопки Continue Shopping")
     public void continueShopping() {
 
         loginPage.open();

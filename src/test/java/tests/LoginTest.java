@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -10,6 +11,16 @@ public class LoginTest extends BaseTest {
     //enabled = false - тест скипается, retryAnalyzer - перезапустить тест (для тестов которые падают периодически например из-за таймаута)
     @Test(testName = "Позитивный логин", description = "Проверить позитивный логин",
             priority = 1, enabled = true)  //retryAnalyzer = Retry.class)
+    @Epic("Страница логина")    //Название эпика
+    @Feature("Проверка логина в приложение")   //Функционал, который проверяется
+    @Story("Валидный логин")   //Название стори
+    @Severity(SeverityLevel.CRITICAL)
+    @Link("https://www.saucedemo.com/")
+    @Owner("Natalia Boytsova")
+    @Issue("Bug-10")   //Номер дефекта
+    @TmsLink("TC-10") //Ссылка на тест кейс (в тестрейле/зефире - любой тест менеджмент системе)
+    @Description("Проверка валидного логина")
+    @Flaky   //Нестабильные тесты
     public void checkLogin() {
 
         loginPage.open();
@@ -23,6 +34,7 @@ public class LoginTest extends BaseTest {
     //Тест - пустое поле Name
     @Test(testName = "Пустое имя", description = "Оставить Поле имя пустым",
             priority = 2, enabled = true)
+    @Description("Пустое поле Name при логине")
     public void checkEmptyNameDuringLogin() {
 
         loginPage.open();
@@ -36,6 +48,7 @@ public class LoginTest extends BaseTest {
     //Тест - пустое поле Password
     @Test(testName = "Пустой пароль", description = "Оставить поле Пароль пустым",
             priority = 3, enabled = true)
+    @Description("Пустое поле Password при логине")
     public void checkEmptyPasswordDuringLogin() {
 
         loginPage.open();
@@ -49,6 +62,7 @@ public class LoginTest extends BaseTest {
     //Тест - введён неправильный логин (имя пользователя)
     @Test(testName = "Неправильное имя", description = "Ввести неправильное имя юзера",
             priority = 4, enabled = true)
+    @Description("Ввести невалидное имя пользователя")
     public void checkIncorrectUserNameDuringLogin() {
 
         loginPage.open();
@@ -62,6 +76,7 @@ public class LoginTest extends BaseTest {
     //Тест - введён неправильный пароль
     @Test(testName = "Неправильный пароль", description = "Ввести неправильный пароль",
             priority = 5, enabled = true)
+    @Description("Ввести невалидный пароль")
     public void checkIncorrectPasswordDuringLogin() {
 
         loginPage.open();
@@ -82,6 +97,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "LoginData", testName = "Цикл тестов на логин")
+    @Description("Цикл тестов LoginData с разными данными логин/пароль")
     public void test(String user, String password, String expectedError) {
         loginPage.open();
         loginPage.login(user, password);
@@ -90,6 +106,8 @@ public class LoginTest extends BaseTest {
                 expectedError,
                 "Неправильное сообщение об ошибке");
     }
+
+
 
     /*Метод - скопировать в буфер обмена
     public void copyMethod() {
