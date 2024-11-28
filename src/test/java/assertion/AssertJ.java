@@ -1,4 +1,4 @@
-/*
+
 package assertion;
 
 import org.assertj.core.api.Assertions;
@@ -88,4 +88,3 @@ public class AssertJ {
                 .isFalse();
     }
 }
- */

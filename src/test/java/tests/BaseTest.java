@@ -1,16 +1,20 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.ITestContext;
 import org.testng.ITestListener;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
+import utils.AllureUtils;
 
 import java.time.Duration;
 
@@ -24,7 +28,8 @@ public class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setup(@Optional("chrome") String browser) {
+    @Description("Открытие браузера")
+    public void setup(@Optional("chrome") String browser, ITestContext context) {
         //Настройка и инициация драйвера, можно запустить 3 разных браузера
         if(browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
@@ -38,6 +43,8 @@ public class BaseTest {
             driver = new FirefoxDriver(options);
         }
 
+        //context.setAttribute("driver", driver); - работает только с версией TestNG 7.4.0, если выше версия то скрины при падении теста делать не будет
+        TestListener.setDriver(driver);
         loginPage = new LoginPage(driver);   //объявление (инициализация) переменной loginPage класса LoginPage и передача в неё переменной driver
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
@@ -45,7 +52,11 @@ public class BaseTest {
 
     //Закрыть браузер
     @AfterMethod(alwaysRun = true)
-    public void tearDown() {
+    @Description("Закрытие браузера")
+    public void tearDown(ITestResult result) {
+//        if (ITestResult.FAILURE == result.getStatus()) {
+//            AllureUtils.takeScreenshot(driver);
+//        }
         driver.quit();
     }
 }

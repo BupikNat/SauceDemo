@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,6 +18,7 @@ public class ProductsPage extends BasePage {
     }
 
     //Проверить что открылась страница Products (найти элемент Products по селектору)
+    @Step("Открытие страницы Products")
     public String getTitle() {
         //Timeout exception проверяем нахождение локатора в коде
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE));
@@ -24,18 +26,21 @@ public class ProductsPage extends BasePage {
     }
 
     //Добавить товар в корзину
+    @Step("Добавление товара с именем {product} в корзину")
     public void clickAddButton(String product) {
         By addToCart = By.xpath(String.format(ADD_TO_CART_PATTERN, product));
         driver.findElement(addToCart).click();
     }
 
     //Удалить товар из корзины
+    @Step("Клик на кнопку удаления товара из корзины")
     public void clickRemoveButton(String product) {
         By removeFromCart = By.xpath((String.format(REMOVE_FROM_CART_PATTERN, product)));
         driver.findElement(removeFromCart).click();
     }
 
-    //Открыть корзину и проверить что товар в корзине
+    //Открыть корзину
+    @Step("Открытие корзины")
     public void clickShoppingCart() {
         driver.findElement(CART_LINK).click();
     }
