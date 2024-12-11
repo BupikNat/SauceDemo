@@ -30,8 +30,8 @@ public class TestListener implements ITestListener {
     public void onTestSuccess(ITestResult iTestResult) {
         //System.out.printf("======================================== FINISHED TEST %s Duration: %ss ========================================%n", iTestResult.getName(),
         //        getExecutionTime(iTestResult));
-        log.info(String.format("======================================== FINISHED TEST %s Duration: %ss ========================================%n"), iTestResult.getName(),
-                getExecutionTime(iTestResult));
+        log.info(String.format("======================================== FINISHED TEST %s Duration: %ss ========================================%n", iTestResult.getName(),
+                getExecutionTime(iTestResult)));
         //WebDriver driver = (WebDriver) iTestResult.getTestContext().getAttribute("driver");
         //takeScreenshot(driver);  //добавляем скриншот в этот метод (Failure), чтобы скрин если тест удачный
     }
@@ -40,8 +40,8 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult iTestResult) {
         //System.out.printf("======================================== FAILED TEST %s Duration: %ss ========================================%n", iTestResult.getName(),
         //        getExecutionTime(iTestResult));
-        log.info(String.format("======================================== FAILED TEST %s Duration: %ss ========================================%n"), iTestResult.getName(),
-                getExecutionTime(iTestResult));
+        log.info(String.format("======================================== FAILED TEST %s Duration: %ss ========================================%n", iTestResult.getName(),
+                getExecutionTime(iTestResult)));
         //WebDriver driver = (WebDriver) iTestResult.getTestContext().getAttribute("driver");
         takeScreenshot(driver);  //добавляем скриншот в этот метод (Failure), чтобы скрин делался именно при падении теста
     }
@@ -49,7 +49,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
         //System.out.printf("======================================== SKIPPING TEST %s ========================================%n", iTestResult.getName());
-        log.info(String.format("======================================== SKIPPING TEST %s ========================================%n"), iTestResult.getName());
+        log.info(String.format("======================================== SKIPPING TEST %s ========================================%n", iTestResult.getName()));
     }
 
     @Override

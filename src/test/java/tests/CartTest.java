@@ -15,7 +15,7 @@ public class CartTest extends BaseTest {
 
         log.info("Add product to the Cart and validate adding by name of the product");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.getTitle();
         productsPage.clickAddButton("Sauce Labs Bike Light");
         productsPage.clickShoppingCart();
@@ -36,7 +36,7 @@ public class CartTest extends BaseTest {
 
         log.info("Add product to the Cart and validate adding by price of the product");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.getTitle();
         productsPage.clickAddButton("Sauce Labs Bike Light");
         productsPage.clickShoppingCart();
@@ -53,7 +53,7 @@ public class CartTest extends BaseTest {
 
         log.info("Removing product from the Cart");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.getTitle();
         productsPage.clickAddButton("Sauce Labs Bike Light");
         productsPage.clickShoppingCart();
@@ -70,7 +70,7 @@ public class CartTest extends BaseTest {
 
         log.info("Adding two products to the Cart");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.getTitle();
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickAddButton("Sauce Labs Bike Light");
@@ -90,7 +90,7 @@ public class CartTest extends BaseTest {
 
         log.info("Removing two products from the Cart");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.getTitle();
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickAddButton("Sauce Labs Bike Light");
@@ -112,7 +112,7 @@ public class CartTest extends BaseTest {
 
         log.info("Click on Continue Shopping button");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.getTitle();
         productsPage.clickAddButton("Test.allTheThings() T-Shirt (Red)");
         productsPage.clickShoppingCart();

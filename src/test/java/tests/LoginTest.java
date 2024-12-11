@@ -25,6 +25,7 @@ public class LoginTest extends BaseTest {
     @Flaky   //Нестабильные тесты
     public void checkLogin() {
 
+        log.info("Log in into SauceDemo");
         loginPage.open();
         loginPage.login(user, password);
         assertEquals(
@@ -39,8 +40,9 @@ public class LoginTest extends BaseTest {
     @Description("Пустое поле Name при логине")
     public void checkEmptyNameDuringLogin() {
 
+        log.info("Log in with empty username");
         loginPage.open();
-        loginPage.login("", "secret_sauce");
+        loginPage.login("", password);
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Username is required",
@@ -53,8 +55,9 @@ public class LoginTest extends BaseTest {
     @Description("Пустое поле Password при логине")
     public void checkEmptyPasswordDuringLogin() {
 
+        log.info("Log in with empty password");
         loginPage.open();
-        loginPage.login("standard_user", "");
+        loginPage.login(user, "");
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Password is required",
@@ -67,8 +70,9 @@ public class LoginTest extends BaseTest {
     @Description("Ввести невалидное имя пользователя")
     public void checkIncorrectUserNameDuringLogin() {
 
+        log.info("Log in with invalid username");
         loginPage.open();
-        loginPage.login("some_wrong_username", "secret_sauce");
+        loginPage.login("some_wrong_username", password);
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Username and password do not match any user in this service",
@@ -81,8 +85,9 @@ public class LoginTest extends BaseTest {
     @Description("Ввести невалидный пароль")
     public void checkIncorrectPasswordDuringLogin() {
 
+        log.info("Log in with invalid password");
         loginPage.open();
-        loginPage.login("user-name", "some_wrong_password");
+        loginPage.login(user, "some_wrong_password");
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Username and password do not match any user in this service",
@@ -101,6 +106,8 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "LoginData", testName = "Цикл тестов на логин")
     @Description("Цикл тестов LoginData с разными данными логин/пароль")
     public void test(String user, String password, String expectedError) {
+
+        log.info("Log in with different combinations of username '{}' and password '{}'", user, password);
         loginPage.open();
         loginPage.login(user, password);
         assertEquals(
