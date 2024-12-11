@@ -1,11 +1,13 @@
 package tests;
 
 import io.qameta.allure.*;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
+@Log4j2
 public class LoginTest extends BaseTest {
 
     //enabled = false - тест скипается, retryAnalyzer - перезапустить тест (для тестов которые падают периодически например из-за таймаута)

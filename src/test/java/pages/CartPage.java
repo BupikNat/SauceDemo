@@ -1,8 +1,10 @@
 package pages;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class CartPage extends BasePage {
 
     private By productInCart = By.cssSelector(".cart_item");
@@ -17,17 +19,23 @@ public class CartPage extends BasePage {
 
     @Step("Получение цены товара")
     public String getProductPrice(int index) {
+
+        log.info("Getting of the product price '{}'", productPrice);
         return driver.findElements(productPrice).get(index).getText();
     }
 
     @Step("Удаление товара из корзины")
     public void removeProductFromCart(String itemName) {
+
+        log.info("Click on Remove button");
         By removeButton = By.xpath(String.format(this.removeButton, itemName));
         driver.findElement(removeButton).click();
     }
 
     @Step("Проверка, что корзина пустая")
     public boolean isCartEmpty() {
+
+        log.info("Check that cart is empty");
         return driver.findElements(productInCart).isEmpty();
     }
 
@@ -38,6 +46,8 @@ public class CartPage extends BasePage {
 
     @Step("Проверка, что товар добавлен в корзину по названию товара")
     public String getAddedProductByName(String product) {
+
+        log.info("Check that product is added to the cart");
         By productName = By.xpath(String.format(nameOfAddedProduct, product));
         return driver.findElement(productName).getText();
     }

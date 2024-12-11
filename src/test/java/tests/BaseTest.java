@@ -1,6 +1,7 @@
 package tests;
 
 import io.qameta.allure.Description;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,6 +20,7 @@ import utils.PropertyReader;
 import java.time.Duration;
 
 @Listeners(TestListener.class)
+@Log4j2
 public class BaseTest {
 
     WebDriver driver;
@@ -34,6 +36,7 @@ public class BaseTest {
     @Description("Открытие браузера")
     public void setup(@Optional("chrome") String browser, ITestContext context) {
         //Настройка и инициация драйвера, можно запустить 3 разных браузера
+        log.info("Open browser");
         if(browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
@@ -42,11 +45,11 @@ public class BaseTest {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         } else if(browser.equalsIgnoreCase("edge")) {
             EdgeOptions options = new EdgeOptions();
-            options.addArguments("headless");
+            options.addArguments("--headless");
             driver = new EdgeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
             FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("headless");
+            options.addArguments("--headless");
             driver = new FirefoxDriver(options);
         }
 
@@ -61,6 +64,7 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     @Description("Закрытие браузера")
     public void tearDown(ITestResult result) {
+        log.info("Close browser");
 //        if (ITestResult.FAILURE == result.getStatus()) {
 //            AllureUtils.takeScreenshot(driver);
 //        }

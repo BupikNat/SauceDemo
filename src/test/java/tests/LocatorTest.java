@@ -1,12 +1,16 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+@Log4j2
 public class LocatorTest extends BaseTest {
 
     @Test
     public void locatorTest() {
+
+        log.info("Finding elements by different types of locators");
 
         driver.get("https://www.saucedemo.com");
 

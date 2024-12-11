@@ -1,12 +1,11 @@
 package tests;
 
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+@Log4j2
 public class CartTest extends BaseTest {
 
     //Добавить 1 продукт в корзину и проверить что продукт добавился по имени
@@ -14,6 +13,7 @@ public class CartTest extends BaseTest {
     @Description("Проверка добавления товара в корзину по имени товара")
     public void addToCartAndCheckByName() {
 
+        log.info("Add product to the Cart and validate adding by name of the product");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.getTitle();
@@ -33,6 +33,8 @@ public class CartTest extends BaseTest {
     public void addToCartAndCheckByPrice() {
 
         String expectedPrice = "$9.99";
+
+        log.info("Add product to the Cart and validate adding by price of the product");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.getTitle();
@@ -49,6 +51,7 @@ public class CartTest extends BaseTest {
     @Description("Проверка удаления товара из корзины")
     public void removeItemFromCart() {
 
+        log.info("Removing product from the Cart");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.getTitle();
@@ -65,6 +68,7 @@ public class CartTest extends BaseTest {
     @Description("Проверка добавления нескольких товаров в корзину")
     public void addMultipleItems() {
 
+        log.info("Adding two products to the Cart");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.getTitle();
@@ -84,6 +88,7 @@ public class CartTest extends BaseTest {
     @Description("Проверка удаления нескольких товаров из корзины")
     public void removeMultipleItems() {
 
+        log.info("Removing two products from the Cart");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.getTitle();
@@ -105,6 +110,7 @@ public class CartTest extends BaseTest {
     @Description("Проверка кнопки Continue Shopping")
     public void continueShopping() {
 
+        log.info("Click on Continue Shopping button");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.getTitle();
