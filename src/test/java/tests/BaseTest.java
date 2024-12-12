@@ -39,8 +39,13 @@ public class BaseTest {
         log.info("Open browser");
         if(browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("start-maximized");
-            options.addArguments("headless");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--disable-extensions");
+            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("--headless");
+            options.addArguments("--start-maximized");
             driver = new ChromeDriver(options);   //инициализация
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         } else if(browser.equalsIgnoreCase("edge")) {
